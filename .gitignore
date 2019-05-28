@@ -1,0 +1,6 @@
+manifests/
+vendor/
+*.swp
+prometheus-add-rules.json
+alertmanager-config.yaml
+envvars.sh

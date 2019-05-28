@@ -1,0 +1,25 @@
+# external alertmanager yaml
+global:
+  resolve_timeout: 5m
+  smtp_smarthost: smtp.gb1.brightbox.com:25
+  smtp_from: 'AlertManager <alertmanager@k8s.brightbox.com>'
+  smtp_hello: k8s.brightbox.com
+  smtp_require_tls: true
+  smtp_auth_username: SMTP_AUTH_USERNAME
+  smtp_auth_secret: SMTP_AUTH_SECRET
+route:
+  group_by: ['job']
+  group_wait: 30s
+  group_interval: 5m
+  repeat_interval: 12h
+  receiver: 'ops'
+  routes:
+  - match:
+      alertname: Watchdog
+    receiver: 'ops'
+receivers:
+- name: 'ops'
+  email_configs:
+  - to: TARGET_EMAIL
+    tls_config:
+      insecure_skip_verify: true
