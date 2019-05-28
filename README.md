@@ -1,11 +1,11 @@
 ## Prometheus manifest builder
 
-Creates a HA prometheus installation in the 'monitoring' namespace, looking at 'default' and 'kube-system'. 
+Creates a HA prometheus installation in the `monitoring` namespace, looking at `default` and `kube-system`. 
 
 1. Set the required environment variables shown in
    `alertmanager-config.yaml.src`. These are the secrets to access the SMTP
    relay and the email alerts should be sent to. (`SMTP_AUTH_USERNAME`,
-   `SMTP_AUTH_SECRET`, and `TARGET_EMAIL)
+   `SMTP_AUTH_SECRET`, and `TARGET_EMAIL`)
 
 2. Run `make build` (or just `make`) to create the k8s manifests
 
